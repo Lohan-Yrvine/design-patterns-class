@@ -1,6 +1,6 @@
 # TODO
 
-## Projeto Final
+## Final Project
 
-(Repositório)[https://github.com/Lohan-Yrvine/design_patterns_project]
+[Repository](https://github.com/Lohan-Yrvine/design_patterns_project)
 
