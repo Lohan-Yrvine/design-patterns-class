@@ -10,8 +10,10 @@ body {
 }
 
 .wrapper {
-    display: absolute;
-    margin: 12%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
 }
 
 .contents {
@@ -19,6 +21,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 50px;
+    padding-bottom: 50px;
 }
 
 h1 {
@@ -45,7 +48,7 @@ h1 {
     padding: 20px;
 }
 
-span {
+h2 {
     font-size: 30px;
     font-weight: 100;
 }

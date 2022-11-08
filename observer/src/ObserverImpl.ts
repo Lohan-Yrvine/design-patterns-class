@@ -1,26 +1,27 @@
 import { Observer } from "./interfaces/Observer";
-import { DisplayElement } from "./interfaces/DisplayElement";
+import { Subject } from "./interfaces/Subject";
 
-export class ObserverImpl implements Observer, DisplayElement {
-    private _data: string = "";
-    private _elements: HTMLTextAreaElement[];
+export class ObserverImpl implements Observer {
+    private _subjects: Subject[];
+    private _textArea: HTMLTextAreaElement;
 
-    public constructor(elements: HTMLTextAreaElement[]) {
-        this._elements = elements;
+    public constructor(subjects: Subject[], textArea: HTMLTextAreaElement) {
+        this._subjects = subjects;
+        subjects.forEach(subject => {
+            subject.addObserver(this);
+        });
+        this._textArea = textArea;
     }
 
     public update(data: string): void {
-        this._data = data;
-        this.display();
-    }
-
-    public display(): void {
-        this._elements.forEach(element => {
-            element.value = this._data;
-        });
+        this._textArea.value = data;
     }
     
-    public get getData(): string {
-        return this._data;
+    public get getState(): string {
+        return this._textArea.value;
+    }
+    
+    public get getSubjects(): Subject[] {
+        return this._subjects;
     }
 }
